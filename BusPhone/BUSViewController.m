@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad; {
     [super viewDidLoad];
-	
+		
 	self.vehicles = [NSMutableArray array];
 	
 	NSURL *busDroneURL = [NSURL URLWithString:@"ws://busdrone.com:28737/"];
@@ -37,26 +37,17 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated; {
+	CLLocationCoordinate2D startCoord = CLLocationCoordinate2DMake(47.6204,  -122.3491);
+	MKCoordinateSpan startSpan = MKCoordinateSpanMake(.07, .07);
+	MKCoordinateRegion startRegion = MKCoordinateRegionMake(startCoord, startSpan);
+	[self.map setRegion:startRegion animated:NO];
+	
 	[self.webSocket open];
-}
-
-- (void)viewDidAppear:(BOOL)animated; {
-	[self performSelector:@selector(zoomInOnCurrentUserForMap:) withObject:self.map afterDelay:2];
 }
 
 - (void)didReceiveMemoryWarning; {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (void)zoomInOnCurrentUserForMap:(MKMapView *)mapView; {
-	CLLocation *userLocation = mapView.userLocation.location;
-	CLLocationDegrees latDelta = .05;
-	CLLocationDegrees longDelta = .05;
-	MKCoordinateSpan userSpan = MKCoordinateSpanMake(latDelta, longDelta);
-	MKCoordinateRegion userRegion = MKCoordinateRegionMake(userLocation.coordinate, userSpan);
-	[mapView setRegion:userRegion animated:YES];
 }
 
 #pragma mark - SRWebSocketDelegate
@@ -104,10 +95,6 @@ static NSString * const BUSSocketEventTypeRemoveVehicle = @"remove_vehicle";
 }
 
 #pragma mark - MKMapViewDelegate
-
-- (void)mapViewWillStartLocatingUser:(MKMapView *)mapView; {
-	[self zoomInOnCurrentUserForMap:mapView];
-}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation; {
 	if([annotation isKindOfClass:[MKUserLocation class]]) return nil;
