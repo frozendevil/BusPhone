@@ -7,6 +7,7 @@
 //
 
 #import "BUSVehicleAnnotationView.h"
+#import "BUSVehicle.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BUSVehicleAnnotationView ()
@@ -24,23 +25,61 @@
 	self.layer.cornerRadius = 5;
 	self.clipsToBounds = NO;
 	
-	UILabel *title = [[UILabel alloc] initWithFrame:CGRectZero];
-	title.text = [annotation title];
-	title.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
-	title.textColor = [UIColor whiteColor];
-	title.backgroundColor = [UIColor clearColor];
-	[title sizeToFit];
-	CGRect frame = self.frame;
-	frame.size.width = title.bounds.size.width + 6;
-	frame.size.height = title.bounds.size.height + 6;
-	self.frame = frame;
+	self.annotationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	[self addSubview:self.annotationLabel];
 	
-	title.center = self.center;
-	title.frame = CGRectIntegral(title.frame);
-	
-	[self addSubview:title];
+	[self setAnnotation:annotation];
 	
     return self;
+}
+
+- (void)setAnnotation:(id<MKAnnotation>)annotation; {
+	[super setAnnotation:annotation];
+	
+	if(![annotation isKindOfClass:[BUSVehicle class]]) {
+		return;
+	}
+
+	BUSVehicle *vehicle = (BUSVehicle *)annotation;
+	switch (vehicle.vehicleType) {
+		case BUSVehicleTypeBus:
+			self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+		case BUSVehicleTypeFerry:
+			self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+		case BUSVehicleTypeStreetCar:
+			self.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+		case BUSVehicleTypeTrain:
+			self.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+		case BUSVehicleTypeLunarRover:
+			self.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+		default:
+			self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
+			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			break;
+			break;
+	}
+	
+	self.annotationLabel.text = [annotation title];
+	self.annotationLabel.textColor = [UIColor whiteColor];
+	self.annotationLabel.backgroundColor = [UIColor clearColor];
+	[self.annotationLabel sizeToFit];
+	CGRect frame = self.frame;
+	frame.size.width = self.annotationLabel.bounds.size.width + 6;
+	frame.size.height = self.annotationLabel.bounds.size.height + 6;
+	self.frame = frame;
+	
+	self.annotationLabel.center = self.center;
+	self.annotationLabel.frame = CGRectIntegral(self.annotationLabel.frame);
 }
 
 /*

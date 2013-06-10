@@ -41,7 +41,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated; {
-	//[self performSelector:@selector(zoomInOnCurrentUserForMap:) withObject:self.map afterDelay:2];
+	[self performSelector:@selector(zoomInOnCurrentUserForMap:) withObject:self.map afterDelay:2];
 }
 
 - (void)didReceiveMemoryWarning; {
