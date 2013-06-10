@@ -60,6 +60,10 @@ static NSString * const BUSSocketEventTypeRemoveVehicle = @"remove_vehicle";
 	NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
 	NSError *error = nil;
 	NSDictionary *busEventDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+	if(!busEventDict) {
+		NSLog(@"JSON parsing error: %@", error);
+	}
+	
 	NSString *eventType = busEventDict[@"type"];
 	
 	if([eventType isEqualToString:BUSSocketEventTypeInit]) {
