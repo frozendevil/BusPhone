@@ -19,6 +19,17 @@
 		438E88C21763F9A900533D87 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438E88C01763F9A900533D87 /* MainStoryboard_iPhone.storyboard */; };
 		438E88C51763F9A900533D87 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438E88C31763F9A900533D87 /* MainStoryboard_iPad.storyboard */; };
 		438E88C81763F9A900533D87 /* BUSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88C71763F9A900533D87 /* BUSViewController.m */; };
+		438E88D21763FA6A00533D87 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88D11763FA6A00533D87 /* MapKit.framework */; };
+		438E88D41763FB0800533D87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88D31763FB0800533D87 /* CoreLocation.framework */; };
+		438E88DD1764010500533D87 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 438E88D61764010500533D87 /* base64.c */; };
+		438E88DE1764010500533D87 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88D91764010500533D87 /* NSData+SRB64Additions.m */; };
+		438E88DF1764010500533D87 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88DC1764010500533D87 /* SRWebSocket.m */; };
+		438E88E2176401EF00533D87 /* BUSVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88E1176401EF00533D87 /* BUSVehicle.m */; };
+		438E88E417640DC400533D87 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88E317640DC400533D87 /* libicucore.dylib */; };
+		438E88E617640DD400533D87 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88E517640DD400533D87 /* CFNetwork.framework */; };
+		438E88E817640DDE00533D87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88E717640DDE00533D87 /* Security.framework */; };
+		438E88EB1764184500533D87 /* BUSVehicleAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88EA1764184500533D87 /* BUSVehicleAnnotationView.m */; };
+		438E88ED1764186F00533D87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88EC1764186E00533D87 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +50,23 @@
 		438E88C41763F9A900533D87 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		438E88C61763F9A900533D87 /* BUSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BUSViewController.h; sourceTree = "<group>"; };
 		438E88C71763F9A900533D87 /* BUSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BUSViewController.m; sourceTree = "<group>"; };
+		438E88D11763FA6A00533D87 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		438E88D31763FB0800533D87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		438E88D61764010500533D87 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		438E88D71764010500533D87 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		438E88D81764010500533D87 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		438E88D91764010500533D87 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		438E88DA1764010500533D87 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		438E88DB1764010500533D87 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		438E88DC1764010500533D87 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		438E88E0176401EF00533D87 /* BUSVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSVehicle.h; sourceTree = "<group>"; };
+		438E88E1176401EF00533D87 /* BUSVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSVehicle.m; sourceTree = "<group>"; };
+		438E88E317640DC400533D87 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		438E88E517640DD400533D87 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		438E88E717640DDE00533D87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		438E88E91764184500533D87 /* BUSVehicleAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSVehicleAnnotationView.h; sourceTree = "<group>"; };
+		438E88EA1764184500533D87 /* BUSVehicleAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSVehicleAnnotationView.m; sourceTree = "<group>"; };
+		438E88EC1764186E00533D87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438E88ED1764186F00533D87 /* QuartzCore.framework in Frameworks */,
+				438E88E817640DDE00533D87 /* Security.framework in Frameworks */,
+				438E88E617640DD400533D87 /* CFNetwork.framework in Frameworks */,
+				438E88E417640DC400533D87 /* libicucore.dylib in Frameworks */,
+				438E88D41763FB0800533D87 /* CoreLocation.framework in Frameworks */,
+				438E88D21763FA6A00533D87 /* MapKit.framework in Frameworks */,
 				438E88A91763F9A900533D87 /* UIKit.framework in Frameworks */,
 				438E88AB1763F9A900533D87 /* Foundation.framework in Frameworks */,
 				438E88AD1763F9A900533D87 /* CoreGraphics.framework in Frameworks */,
@@ -75,6 +109,13 @@
 		438E88A71763F9A900533D87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				438E88EC1764186E00533D87 /* QuartzCore.framework */,
+				438E88E717640DDE00533D87 /* Security.framework */,
+				438E88E517640DD400533D87 /* CFNetwork.framework */,
+				438E88E317640DC400533D87 /* libicucore.dylib */,
+				438E88D51764010500533D87 /* SocketRocket */,
+				438E88D31763FB0800533D87 /* CoreLocation.framework */,
+				438E88D11763FA6A00533D87 /* MapKit.framework */,
 				438E88A81763F9A900533D87 /* UIKit.framework */,
 				438E88AA1763F9A900533D87 /* Foundation.framework */,
 				438E88AC1763F9A900533D87 /* CoreGraphics.framework */,
@@ -85,12 +126,13 @@
 		438E88AE1763F9A900533D87 /* BusPhone */ = {
 			isa = PBXGroup;
 			children = (
+				438E88D01763FA2600533D87 /* Model */,
+				438E88CF1763FA2300533D87 /* View */,
+				438E88CE1763FA1F00533D87 /* Controller */,
 				438E88B71763F9A900533D87 /* BUSAppDelegate.h */,
 				438E88B81763F9A900533D87 /* BUSAppDelegate.m */,
 				438E88C01763F9A900533D87 /* MainStoryboard_iPhone.storyboard */,
 				438E88C31763F9A900533D87 /* MainStoryboard_iPad.storyboard */,
-				438E88C61763F9A900533D87 /* BUSViewController.h */,
-				438E88C71763F9A900533D87 /* BUSViewController.m */,
 				438E88AF1763F9A900533D87 /* Supporting Files */,
 			);
 			path = BusPhone;
@@ -108,6 +150,47 @@
 				438E88BE1763F9A900533D87 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		438E88CE1763FA1F00533D87 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				438E88C61763F9A900533D87 /* BUSViewController.h */,
+				438E88C71763F9A900533D87 /* BUSViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		438E88CF1763FA2300533D87 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				438E88E91764184500533D87 /* BUSVehicleAnnotationView.h */,
+				438E88EA1764184500533D87 /* BUSVehicleAnnotationView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		438E88D01763FA2600533D87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				438E88E0176401EF00533D87 /* BUSVehicle.h */,
+				438E88E1176401EF00533D87 /* BUSVehicle.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		438E88D51764010500533D87 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				438E88D61764010500533D87 /* base64.c */,
+				438E88D71764010500533D87 /* base64.h */,
+				438E88D81764010500533D87 /* NSData+SRB64Additions.h */,
+				438E88D91764010500533D87 /* NSData+SRB64Additions.m */,
+				438E88DA1764010500533D87 /* SocketRocket-Prefix.pch */,
+				438E88DB1764010500533D87 /* SRWebSocket.h */,
+				438E88DC1764010500533D87 /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +264,11 @@
 				438E88B51763F9A900533D87 /* main.m in Sources */,
 				438E88B91763F9A900533D87 /* BUSAppDelegate.m in Sources */,
 				438E88C81763F9A900533D87 /* BUSViewController.m in Sources */,
+				438E88DD1764010500533D87 /* base64.c in Sources */,
+				438E88DE1764010500533D87 /* NSData+SRB64Additions.m in Sources */,
+				438E88DF1764010500533D87 /* SRWebSocket.m in Sources */,
+				438E88E2176401EF00533D87 /* BUSVehicle.m in Sources */,
+				438E88EB1764184500533D87 /* BUSVehicleAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +401,7 @@
 				438E88CD1763F9A900533D87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
