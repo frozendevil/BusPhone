@@ -89,8 +89,10 @@ static NSString * const BUSSocketEventTypeRemoveVehicle = @"remove_vehicle";
 	NSUInteger index = [self.map.annotations indexOfObject:newVehicle];
 	if(index == NSNotFound) return;
 	
-	BUSVehicle *annotation = self.map.annotations[index];
-	[annotation setValuesWithJSONDict:JSONDict];
+	[UIView animateWithDuration:0.25 animations:^{
+		BUSVehicle *annotation = self.map.annotations[index];
+		[annotation setValuesWithJSONDict:JSONDict];
+	}];
 }
 
 - (void)removeVehicleWithJSONDict:(NSDictionary *)JSONDict; {
