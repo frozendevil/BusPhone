@@ -38,6 +38,11 @@
 
 @implementation BUSVehicle
 
++ (instancetype)vehicleWithJSONDict:(NSDictionary *)JSONDict; {
+	BUSVehicle *newVehicle = [[[self class] alloc] initWithJSONDict:JSONDict];
+	return newVehicle;
+}
+
 - (instancetype)initWithJSONDict:(NSDictionary *)JSONDict; {
 	self = [super init];
 	if(!self) return nil;

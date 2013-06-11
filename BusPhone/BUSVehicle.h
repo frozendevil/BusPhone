@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, BUSVehicleType) {
 
 @interface BUSVehicle : NSObject <MKAnnotation>
 
++ (instancetype)vehicleWithJSONDict:(NSDictionary *)JSONDict;
 - (instancetype)initWithJSONDict:(NSDictionary *)JSONDict;
 - (void)setValuesWithJSONDict:(NSDictionary *)JSONDict;
 
