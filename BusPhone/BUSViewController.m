@@ -52,11 +52,11 @@
 }
 
 - (void)eventManager:(BUSEventManager *)manager didUpdateVehicles:(NSArray *)vehicles; {
-	[vehicles enumerateObjectsUsingBlock:^(BUSVehicle *newVehicle, NSUInteger idx, BOOL *stop) {
-		NSUInteger index = [self.map.annotations indexOfObject:newVehicle];
-		if(index == NSNotFound) return;
-		
-		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+	[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[vehicles enumerateObjectsUsingBlock:^(BUSVehicle *newVehicle, NSUInteger idx, BOOL *stop) {
+			NSUInteger index = [self.map.annotations indexOfObject:newVehicle];
+			if(index == NSNotFound) return;
+			
 			[UIView animateWithDuration:0.25 animations:^{
 				BUSVehicle *annotation = self.map.annotations[index];
 				[annotation setValuesWithVehicle:newVehicle];

@@ -72,6 +72,8 @@
 	self.inService = otherVehicle.inService; // XXX
 	self.timestamp = otherVehicle.timestamp;
 	self.age = otherVehicle.age;
+	
+	self.coordinate = otherVehicle.coordinate;
 }
 
 - (void)setValuesWithJSONDict:(NSDictionary *)JSONDict; {
