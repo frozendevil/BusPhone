@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4325C33317670E0300F82A3D /* bus-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33117670E0300F82A3D /* bus-dot.png */; };
+		4325C33417670E0300F82A3D /* bus-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33217670E0300F82A3D /* bus-dot@2x.png */; };
 		438E88A91763F9A900533D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88A81763F9A900533D87 /* UIKit.framework */; };
 		438E88AB1763F9A900533D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AA1763F9A900533D87 /* Foundation.framework */; };
 		438E88AD1763F9A900533D87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AC1763F9A900533D87 /* CoreGraphics.framework */; };
@@ -37,9 +39,18 @@
 		438E88FB1765743B00533D87 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F71765743B00533D87 /* LICENCE.txt */; };
 		438E88FC1765743B00533D87 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88F91765743B00533D87 /* Reachability.m */; };
 		438E88FD1765743B00533D87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 438E88FA1765743B00533D87 /* README.md */; };
+		438E88FF1765747500533D87 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88FE1765747500533D87 /* SystemConfiguration.framework */; };
+		438E89021765749E00533D87 /* BUSWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E89011765749E00533D87 /* BUSWebSocketManager.m */; };
+		438E8905176578C600533D87 /* BUSEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E8904176578C600533D87 /* BUSEventParser.m */; };
+		43988AAB17681614000BCE20 /* boat-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA717681614000BCE20 /* boat-dot.png */; };
+		43988AAC17681614000BCE20 /* boat-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA817681614000BCE20 /* boat-dot@2x.png */; };
+		43988AAD17681614000BCE20 /* train-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA917681614000BCE20 /* train-dot.png */; };
+		43988AAE17681614000BCE20 /* train-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AAA17681614000BCE20 /* train-dot@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4325C33117670E0300F82A3D /* bus-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bus-dot.png"; path = "Resources/bus-dot.png"; sourceTree = SOURCE_ROOT; };
+		4325C33217670E0300F82A3D /* bus-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bus-dot@2x.png"; path = "Resources/bus-dot@2x.png"; sourceTree = SOURCE_ROOT; };
 		438E88A51763F9A900533D87 /* BusPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438E88A81763F9A900533D87 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		438E88AA1763F9A900533D87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +93,15 @@
 		438E88F81765743B00533D87 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		438E88F91765743B00533D87 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		438E88FA1765743B00533D87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		438E88FE1765747500533D87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		438E89001765749E00533D87 /* BUSWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSWebSocketManager.h; sourceTree = "<group>"; };
+		438E89011765749E00533D87 /* BUSWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSWebSocketManager.m; sourceTree = "<group>"; };
+		438E8903176578C600533D87 /* BUSEventParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSEventParser.h; sourceTree = "<group>"; };
+		438E8904176578C600533D87 /* BUSEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSEventParser.m; sourceTree = "<group>"; };
+		43988AA717681614000BCE20 /* boat-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boat-dot.png"; path = "Resources/boat-dot.png"; sourceTree = SOURCE_ROOT; };
+		43988AA817681614000BCE20 /* boat-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boat-dot@2x.png"; path = "Resources/boat-dot@2x.png"; sourceTree = SOURCE_ROOT; };
+		43988AA917681614000BCE20 /* train-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "train-dot.png"; path = "Resources/train-dot.png"; sourceTree = SOURCE_ROOT; };
+		43988AAA17681614000BCE20 /* train-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "train-dot@2x.png"; path = "Resources/train-dot@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438E88FF1765747500533D87 /* SystemConfiguration.framework in Frameworks */,
 				438E88ED1764186F00533D87 /* QuartzCore.framework in Frameworks */,
 				438E88E817640DDE00533D87 /* Security.framework in Frameworks */,
 				438E88E617640DD400533D87 /* CFNetwork.framework in Frameworks */,
@@ -104,6 +125,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4325C33017670DEB00F82A3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43988AA717681614000BCE20 /* boat-dot.png */,
+				43988AA817681614000BCE20 /* boat-dot@2x.png */,
+				43988AA917681614000BCE20 /* train-dot.png */,
+				43988AAA17681614000BCE20 /* train-dot@2x.png */,
+				4325C33117670E0300F82A3D /* bus-dot.png */,
+				4325C33217670E0300F82A3D /* bus-dot@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		438E889C1763F9A900533D87 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +162,7 @@
 		438E88A71763F9A900533D87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				438E88FE1765747500533D87 /* SystemConfiguration.framework */,
 				438E88F61765743B00533D87 /* Reachability */,
 				438E88EC1764186E00533D87 /* QuartzCore.framework */,
 				438E88E717640DDE00533D87 /* Security.framework */,
@@ -146,6 +181,7 @@
 		438E88AE1763F9A900533D87 /* BusPhone */ = {
 			isa = PBXGroup;
 			children = (
+				4325C33017670DEB00F82A3D /* Resources */,
 				438E88D01763FA2600533D87 /* Model */,
 				438E88CF1763FA2300533D87 /* View */,
 				438E88CE1763FA1F00533D87 /* Controller */,
@@ -177,6 +213,10 @@
 			children = (
 				438E88C61763F9A900533D87 /* BUSViewController.h */,
 				438E88C71763F9A900533D87 /* BUSViewController.m */,
+				438E89001765749E00533D87 /* BUSWebSocketManager.h */,
+				438E89011765749E00533D87 /* BUSWebSocketManager.m */,
+				438E8903176578C600533D87 /* BUSEventParser.h */,
+				438E8904176578C600533D87 /* BUSEventParser.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -276,18 +316,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43988AAB17681614000BCE20 /* boat-dot.png in Resources */,
+				43988AAD17681614000BCE20 /* train-dot.png in Resources */,
 				438E88B31763F9A900533D87 /* InfoPlist.strings in Resources */,
 				438E88BB1763F9A900533D87 /* Default.png in Resources */,
 				438E88BD1763F9A900533D87 /* Default@2x.png in Resources */,
 				438E88BF1763F9A900533D87 /* Default-568h@2x.png in Resources */,
 				438E88C21763F9A900533D87 /* MainStoryboard_iPhone.storyboard in Resources */,
+				43988AAC17681614000BCE20 /* boat-dot@2x.png in Resources */,
 				438E88C51763F9A900533D87 /* MainStoryboard_iPad.storyboard in Resources */,
+				43988AAE17681614000BCE20 /* train-dot@2x.png in Resources */,
 				438E88EF17655EBA00533D87 /* icon-57.png in Resources */,
+				4325C33417670E0300F82A3D /* bus-dot@2x.png in Resources */,
 				438E88F117655EBE00533D87 /* icon-114.png in Resources */,
 				438E88F317655EFC00533D87 /* icon-ipad.png in Resources */,
 				438E88F517655F3400533D87 /* busphone-icon-144.png in Resources */,
 				438E88FB1765743B00533D87 /* LICENCE.txt in Resources */,
 				438E88FD1765743B00533D87 /* README.md in Resources */,
+				4325C33317670E0300F82A3D /* bus-dot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +353,8 @@
 				438E88E2176401EF00533D87 /* BUSVehicle.m in Sources */,
 				438E88EB1764184500533D87 /* BUSVehicleAnnotationView.m in Sources */,
 				438E88FC1765743B00533D87 /* Reachability.m in Sources */,
+				438E89021765749E00533D87 /* BUSWebSocketManager.m in Sources */,
+				438E8905176578C600533D87 /* BUSEventParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

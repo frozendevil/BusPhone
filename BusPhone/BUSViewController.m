@@ -10,11 +10,13 @@
 #import "SRWebSocket.h"
 #import "BUSVehicle.h"
 #import "BUSVehicleAnnotationView.h"
+#import "BUSWebSocketManager.h"
 #import <MapKit/MapKit.h>
 
 @interface BUSViewController () <MKMapViewDelegate, SRWebSocketDelegate>
 
 @property (nonatomic, weak) IBOutlet MKMapView *map;
+@property (nonatomic, strong) BUSWebSocketManager *socketManager;
 @property (nonatomic, strong) SRWebSocket *webSocket;
 @property (nonatomic, strong) NSMutableArray *vehicles;
 
@@ -29,6 +31,9 @@
 - (void)viewDidLoad; {
     [super viewDidLoad];
 		
+	self.socketManager = [BUSWebSocketManager new];
+	[self.socketManager start];
+	
 	self.vehicles = [NSMutableArray array];
 	
 	NSURL *busDroneURL = [NSURL URLWithString:@"ws://busdrone.com:28737/"];

@@ -11,7 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface BUSVehicleAnnotationView ()
-@property (nonatomic, strong) UILabel *annotationLabel;
 @end
 
 @implementation BUSVehicleAnnotationView
@@ -20,13 +19,17 @@
     self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
     if (!self) return nil;
 	
-	self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.75];
+	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bus-dot"]];//[[UIColor darkGrayColor] colorWithAlphaComponent:0.75];
 	self.opaque = NO;
 	self.layer.cornerRadius = 5;
 	self.clipsToBounds = NO;
 	
-	self.annotationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-	[self addSubview:self.annotationLabel];
+	CGRect frame = self.frame;
+	CGPoint center = self.center;
+	frame.size.width = 19;
+	frame.size.height = 19;
+	self.frame = frame;
+	self.center = center;
 	
 	[self setAnnotation:annotation];
 	
@@ -39,47 +42,42 @@
 	if(![annotation isKindOfClass:[BUSVehicle class]]) {
 		return;
 	}
+	
+	static UIImage *busDotImage;
+	busDotImage = [UIImage imageNamed:@"bus-dot"];
+	
+	static UIImage *boatDotImage;
+	boatDotImage = [UIImage imageNamed:@"boat-dot"];
+	
+	static UIImage *trainDotImage;
+	trainDotImage = [UIImage imageNamed:@"train-dot"];
 
 	BUSVehicle *vehicle = (BUSVehicle *)annotation;
 	switch (vehicle.vehicleType) {
 		case BUSVehicleTypeBus:
-			self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			self.backgroundColor = [UIColor colorWithPatternImage:busDotImage];
 			break;
 		case BUSVehicleTypeFerry:
-			self.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			self.backgroundColor = [UIColor colorWithPatternImage:boatDotImage];
 			break;
 		case BUSVehicleTypeStreetCar:
-			self.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			self.backgroundColor = [UIColor colorWithPatternImage:trainDotImage];
 			break;
 		case BUSVehicleTypeTrain:
-			self.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
+			self.backgroundColor = [UIColor colorWithPatternImage:trainDotImage];
 			break;
 		case BUSVehicleTypeLunarRover:
-			self.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
-			break;
 		default:
-			self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
-			self.annotationLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:10];
-			break;
+			self.backgroundColor = [UIColor colorWithPatternImage:busDotImage];
 			break;
 	}
 	
-	self.annotationLabel.text = [annotation title];
-	self.annotationLabel.textColor = [UIColor whiteColor];
-	self.annotationLabel.backgroundColor = [UIColor clearColor];
-	[self.annotationLabel sizeToFit];
-	CGRect frame = self.frame;
-	frame.size.width = self.annotationLabel.bounds.size.width + 6;
-	frame.size.height = self.annotationLabel.bounds.size.height + 6;
-	self.frame = frame;
-	
-	self.annotationLabel.center = self.center;
-	self.annotationLabel.frame = CGRectIntegral(self.annotationLabel.frame);
+//	self.annotationLabel.text = [annotation title];
+//	[self.annotationLabel sizeToFit];
+
+//	
+//	self.annotationLabel.center = self.center;
+//	self.annotationLabel.frame = CGRectIntegral(self.annotationLabel.frame);
 }
 
 /*
