@@ -40,7 +40,7 @@
 		438E88FC1765743B00533D87 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88F91765743B00533D87 /* Reachability.m */; };
 		438E88FD1765743B00533D87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 438E88FA1765743B00533D87 /* README.md */; };
 		438E88FF1765747500533D87 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88FE1765747500533D87 /* SystemConfiguration.framework */; };
-		438E89021765749E00533D87 /* BUSWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E89011765749E00533D87 /* BUSWebSocketManager.m */; };
+		438E89021765749E00533D87 /* BUSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E89011765749E00533D87 /* BUSEventManager.m */; };
 		438E8905176578C600533D87 /* BUSEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E8904176578C600533D87 /* BUSEventParser.m */; };
 		43988AAB17681614000BCE20 /* boat-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA717681614000BCE20 /* boat-dot.png */; };
 		43988AAC17681614000BCE20 /* boat-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA817681614000BCE20 /* boat-dot@2x.png */; };
@@ -94,8 +94,8 @@
 		438E88F91765743B00533D87 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		438E88FA1765743B00533D87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		438E88FE1765747500533D87 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		438E89001765749E00533D87 /* BUSWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSWebSocketManager.h; sourceTree = "<group>"; };
-		438E89011765749E00533D87 /* BUSWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSWebSocketManager.m; sourceTree = "<group>"; };
+		438E89001765749E00533D87 /* BUSEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSEventManager.h; sourceTree = "<group>"; };
+		438E89011765749E00533D87 /* BUSEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSEventManager.m; sourceTree = "<group>"; };
 		438E8903176578C600533D87 /* BUSEventParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUSEventParser.h; sourceTree = "<group>"; };
 		438E8904176578C600533D87 /* BUSEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSEventParser.m; sourceTree = "<group>"; };
 		43988AA717681614000BCE20 /* boat-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boat-dot.png"; path = "Resources/boat-dot.png"; sourceTree = SOURCE_ROOT; };
@@ -213,8 +213,8 @@
 			children = (
 				438E88C61763F9A900533D87 /* BUSViewController.h */,
 				438E88C71763F9A900533D87 /* BUSViewController.m */,
-				438E89001765749E00533D87 /* BUSWebSocketManager.h */,
-				438E89011765749E00533D87 /* BUSWebSocketManager.m */,
+				438E89001765749E00533D87 /* BUSEventManager.h */,
+				438E89011765749E00533D87 /* BUSEventManager.m */,
 				438E8903176578C600533D87 /* BUSEventParser.h */,
 				438E8904176578C600533D87 /* BUSEventParser.m */,
 			);
@@ -353,7 +353,7 @@
 				438E88E2176401EF00533D87 /* BUSVehicle.m in Sources */,
 				438E88EB1764184500533D87 /* BUSVehicleAnnotationView.m in Sources */,
 				438E88FC1765743B00533D87 /* Reachability.m in Sources */,
-				438E89021765749E00533D87 /* BUSWebSocketManager.m in Sources */,
+				438E89021765749E00533D87 /* BUSEventManager.m in Sources */,
 				438E8905176578C600533D87 /* BUSEventParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

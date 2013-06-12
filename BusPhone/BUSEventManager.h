@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BUSWebSocketManager : NSObject
+@interface BUSEventManager : NSObject
 
 - (void)start;
 - (void)stop;

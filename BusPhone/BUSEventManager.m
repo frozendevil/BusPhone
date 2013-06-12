@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Izzy Fraimow. All rights reserved.
 //
 
-#import "BUSWebSocketManager.h"
+#import "BUSEventManager.h"
 #import "Reachability.h"
 #import "SRWebSocket.h"
 
-@interface BUSWebSocketManager () <SRWebSocketDelegate>
+@interface BUSEventManager () <SRWebSocketDelegate>
 
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) SRWebSocket *webSocket;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation BUSWebSocketManager 
+@implementation BUSEventManager 
 
 - (instancetype)init; {
 	self = [super init];
