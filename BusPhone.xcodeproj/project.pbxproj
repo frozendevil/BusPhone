@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4325C33317670E0300F82A3D /* bus-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33117670E0300F82A3D /* bus-dot.png */; };
 		4325C33417670E0300F82A3D /* bus-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33217670E0300F82A3D /* bus-dot@2x.png */; };
+		432DB16917685B2200279C87 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 432DB16617685B2200279C87 /* UIControl+Blocks.m */; };
 		438E88A91763F9A900533D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88A81763F9A900533D87 /* UIKit.framework */; };
 		438E88AB1763F9A900533D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AA1763F9A900533D87 /* Foundation.framework */; };
 		438E88AD1763F9A900533D87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AC1763F9A900533D87 /* CoreGraphics.framework */; };
@@ -38,7 +39,6 @@
 		438E88F517655F3400533D87 /* busphone-icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F417655F3400533D87 /* busphone-icon-144.png */; };
 		438E88FB1765743B00533D87 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F71765743B00533D87 /* LICENCE.txt */; };
 		438E88FC1765743B00533D87 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88F91765743B00533D87 /* Reachability.m */; };
-		438E88FD1765743B00533D87 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 438E88FA1765743B00533D87 /* README.md */; };
 		438E88FF1765747500533D87 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88FE1765747500533D87 /* SystemConfiguration.framework */; };
 		438E89021765749E00533D87 /* BUSEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E89011765749E00533D87 /* BUSEventManager.m */; };
 		43988AAB17681614000BCE20 /* boat-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 43988AA717681614000BCE20 /* boat-dot.png */; };
@@ -50,6 +50,10 @@
 /* Begin PBXFileReference section */
 		4325C33117670E0300F82A3D /* bus-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bus-dot.png"; path = "Resources/bus-dot.png"; sourceTree = SOURCE_ROOT; };
 		4325C33217670E0300F82A3D /* bus-dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bus-dot@2x.png"; path = "Resources/bus-dot@2x.png"; sourceTree = SOURCE_ROOT; };
+		432DB16317685B2200279C87 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		432DB16417685B2200279C87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		432DB16517685B2200279C87 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
+		432DB16617685B2200279C87 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
 		438E88A51763F9A900533D87 /* BusPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438E88A81763F9A900533D87 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		438E88AA1763F9A900533D87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -135,6 +139,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		432DB16217685B2200279C87 /* uicontrol-blocks */ = {
+			isa = PBXGroup;
+			children = (
+				432DB16317685B2200279C87 /* LICENSE */,
+				432DB16417685B2200279C87 /* README.md */,
+				432DB16517685B2200279C87 /* UIControl+Blocks.h */,
+				432DB16617685B2200279C87 /* UIControl+Blocks.m */,
+			);
+			path = "uicontrol-blocks";
+			sourceTree = "<group>";
+		};
 		438E889C1763F9A900533D87 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +174,7 @@
 		438E88A71763F9A900533D87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				432DB16217685B2200279C87 /* uicontrol-blocks */,
 				438E88FE1765747500533D87 /* SystemConfiguration.framework */,
 				438E88F61765743B00533D87 /* Reachability */,
 				438E88EC1764186E00533D87 /* QuartzCore.framework */,
@@ -327,7 +343,6 @@
 				438E88F317655EFC00533D87 /* icon-ipad.png in Resources */,
 				438E88F517655F3400533D87 /* busphone-icon-144.png in Resources */,
 				438E88FB1765743B00533D87 /* LICENCE.txt in Resources */,
-				438E88FD1765743B00533D87 /* README.md in Resources */,
 				4325C33317670E0300F82A3D /* bus-dot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +357,7 @@
 				438E88B51763F9A900533D87 /* main.m in Sources */,
 				438E88B91763F9A900533D87 /* BUSAppDelegate.m in Sources */,
 				438E88C81763F9A900533D87 /* BUSViewController.m in Sources */,
+				432DB16917685B2200279C87 /* UIControl+Blocks.m in Sources */,
 				438E88DD1764010500533D87 /* base64.c in Sources */,
 				438E88DE1764010500533D87 /* NSData+SRB64Additions.m in Sources */,
 				438E88DF1764010500533D87 /* SRWebSocket.m in Sources */,
