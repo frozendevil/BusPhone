@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, BUSVehicleType) {
 
 + (instancetype)vehicleWithJSONDict:(NSDictionary *)JSONDict;
 - (instancetype)initWithJSONDict:(NSDictionary *)JSONDict;
+- (void)setValuesWithVehicle:(BUSVehicle *)otherVehicle;
 - (void)setValuesWithJSONDict:(NSDictionary *)JSONDict;
 
 @property (nonatomic, strong, readonly) NSString *UID;
@@ -39,7 +40,7 @@ typedef NS_ENUM(NSInteger, BUSVehicleType) {
 @property (nonatomic, strong, readonly) NSString *color;
 @property (nonatomic, strong, readonly) NSNumber *speed;
 @property (nonatomic, strong, readonly) NSNumber *speedKmh;
-@property (nonatomic, assign, readonly) NSNumber *heading;
+@property (nonatomic, strong, readonly) NSNumber *heading;
 @property (nonatomic, assign, readonly) BOOL inService; // XXX
 @property (nonatomic, strong, readonly) NSDate *timestamp;
 @property (nonatomic, strong, readonly) NSNumber *age;

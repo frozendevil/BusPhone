@@ -26,7 +26,7 @@
 @property (nonatomic, strong, readwrite) NSNumber *speed;
 @property (nonatomic, strong, readwrite) NSNumber *speedKmh;
 @property (nonatomic, assign, readwrite) CLLocationCoordinate2D coordinate;
-@property (nonatomic, assign, readwrite) NSNumber *heading;
+@property (nonatomic, strong, readwrite) NSNumber *heading;
 @property (nonatomic, assign, readwrite) BOOL inService; // XXX
 @property (nonatomic, strong, readwrite) NSDate *timestamp;
 @property (nonatomic, strong, readwrite) NSNumber *age;
@@ -52,12 +52,29 @@
 	return self;
 }
 
+- (void)setValuesWithVehicle:(BUSVehicle *)otherVehicle; {
+	self.UID = otherVehicle.UID;
+	self.provider = otherVehicle.provider;
+	self.vehicleType = otherVehicle.vehicleType;
+	self.vehicleID = otherVehicle.vehicleID;
+	self.previousStop = otherVehicle.previousStop;
+	self.nextStop = otherVehicle.nextStop;
+	self.coach = otherVehicle.coach;
+	self.name = otherVehicle.name;
+	self.routeID = otherVehicle.routeID;
+	self.route = otherVehicle.route;
+	self.tripID = otherVehicle.tripID;
+	self.destination = otherVehicle.destination;
+	self.color = otherVehicle.color;
+	self.speed = otherVehicle.speed;
+	self.speedKmh = otherVehicle.speedKmh;
+	//self.heading = otherVehicle.heading;
+	self.inService = otherVehicle.inService; // XXX
+	self.timestamp = otherVehicle.timestamp;
+	self.age = otherVehicle.age;
+}
+
 - (void)setValuesWithJSONDict:(NSDictionary *)JSONDict; {
-	static NSNumberFormatter *numberFormatter;
-	numberFormatter = [[NSNumberFormatter alloc] init];
-	numberFormatter.locale = [NSLocale currentLocale];
-	[numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-	
 	self.UID = JSONDict[@"uid"];
 	self.provider = JSONDict[@"provider"];
 	
@@ -86,13 +103,15 @@
 	self.tripID = JSONDict[@"tripId"];
 	self.destination = JSONDict[@"destination"];
 	self.color = JSONDict[@"color"];
-	self.speed = [numberFormatter numberFromString:JSONDict[@"speed"]];
+	NSString *speedString = JSONDict[@"speed"];
+	self.speed = speedString ? [NSDecimalNumber decimalNumberWithString:speedString] : nil;
 	//self.speedKmh = JSONDict[@"speedKmh"]? [numberFormatter numberFromString:JSONDict[@"speedKmh"]] : nil;
 	self.coordinate = CLLocationCoordinate2DMake([JSONDict[@"lat"] floatValue], [JSONDict[@"lon"] floatValue]);
 	self.heading = JSONDict[@"heading"];
 	self.inService = [JSONDict[@"inService"] boolValue];
 	//	JSONDict[@"timestamp"];
-	self.age = [numberFormatter numberFromString:JSONDict[@"age"]];
+	NSString *ageString = JSONDict[@"age"];
+	self.age = ageString ? [NSDecimalNumber decimalNumberWithString:ageString] : nil;
 }
 
 - (NSString *)title; {

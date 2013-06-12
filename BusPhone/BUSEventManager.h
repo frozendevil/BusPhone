@@ -8,7 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class BUSEventManager;
+
+@protocol BUSEventManagerDelegate <NSObject>
+
+- (void)eventManager:(BUSEventManager *)manager didReceiveNewVehicles:(NSArray *)vehicles;
+- (void)eventManager:(BUSEventManager *)manager didUpdateVehicles:(NSArray *)vehicles;
+- (void)eventManager:(BUSEventManager *)manager didRemoveVehicles:(NSArray *)vehicles;
+
+@end
+
 @interface BUSEventManager : NSObject
+
+@property (nonatomic, weak) id<BUSEventManagerDelegate> delegate;
 
 - (void)start;
 - (void)stop;

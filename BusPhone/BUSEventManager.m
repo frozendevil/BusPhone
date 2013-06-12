@@ -7,6 +7,7 @@
 //
 
 #import "BUSEventManager.h"
+#import	"BUSVehicle.h"
 #import "Reachability.h"
 #import "SRWebSocket.h"
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) SRWebSocket *webSocket;
 @property (nonatomic, strong) NSOperationQueue *socketQueue;
+@property (nonatomic, strong) NSOperationQueue *processingQueue;
 
 @end
 
@@ -27,11 +29,14 @@
 	self.socketQueue = [[NSOperationQueue alloc] init];
 	self.socketQueue.name = @"com.anathemacalculus.busphone.socketqueue";
 	
+	self.processingQueue = [[NSOperationQueue alloc] init];
+	self.processingQueue.name = @"com.anathemacalculus.busphone.processingqueue";
+	
 	self.reachability = [Reachability reachabilityWithHostname:@"busdrone.com"];
 	
 	NSURL *busDroneURL = [NSURL URLWithString:@"ws://busdrone.com:28737/"];
 	self.webSocket = [[SRWebSocket alloc] initWithURL:busDroneURL];
-	[self.webSocket setDelegateOperationQueue:self.socketQueue];
+	//[self.webSocket setDelegateOperationQueue:self.socketQueue];
 	self.webSocket.delegate = self;
 	
 	__weak typeof(self) weakSelf = self;
@@ -48,6 +53,11 @@
 	return self;
 }
 
+- (void)dealloc; {
+	[self.socketQueue cancelAllOperations];
+	[self.processingQueue cancelAllOperations];
+}
+
 - (void)start; {
 	[self.reachability startNotifier];
 }
@@ -59,13 +69,24 @@
 
 - (void)startSocket; {
 	SRReadyState socketState = [self.webSocket readyState];
-	if(socketState == SR_OPEN || socketState == SR_CONNECTING) return;
+	if(socketState == SR_OPEN) return;
 	
 	[self.webSocket open];
 }
 
 - (void)stopSocket; {
 	[self.webSocket close];
+}
+
+- (NSArray *)vehiclesFromJSONArray:(NSArray *)JSONArray; {
+	NSMutableArray *vehicleArray = [NSMutableArray array];
+	
+	[JSONArray enumerateObjectsUsingBlock:^(NSDictionary *vehicleDict, NSUInteger idx, BOOL *stop) {
+		BUSVehicle *newVehicle = [[BUSVehicle alloc] initWithJSONDict:vehicleDict];
+		[vehicleArray addObject:newVehicle];
+	}];
+	
+	return [NSArray arrayWithArray:vehicleArray];
 }
 
 #pragma mark - SRWebSocketDelegate
@@ -75,22 +96,27 @@ static NSString * const BUSSocketEventTypeUpdateVehicle = @"update_vehicle";
 static NSString * const BUSSocketEventTypeRemoveVehicle = @"remove_vehicle";
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message; {
-	NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-	NSError *error = nil;
-	NSDictionary *busEventDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-	if(!busEventDict) {
-		NSLog(@"JSON parsing error: %@", error);
-	}
-	
-	NSString *eventType = busEventDict[@"type"];
-	
-//	if([eventType isEqualToString:BUSSocketEventTypeInit]) {
-//		[self createVehiclesWithJSONArray:busEventDict[@"vehicles"]];
-//	} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
-//		[self updateVehicleWithJSONDict:busEventDict[@"vehicle"]];
-//	} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
-//		[self removeVehicleWithJSONDict:busEventDict[@"vehicle"]];
-//	}
+	[self.processingQueue addOperationWithBlock:^{
+		NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+		NSError *error = nil;
+		NSDictionary *busEventDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+		if(!busEventDict) {
+			NSLog(@"JSON parsing error: %@", error);
+		}
+		
+		NSString *eventType = busEventDict[@"type"];
+		
+		if([eventType isEqualToString:BUSSocketEventTypeInit]) {
+			NSArray *newVehicles = [self vehiclesFromJSONArray:busEventDict[@"vehicles"]];
+			[self.delegate eventManager:self didReceiveNewVehicles:newVehicles];
+		} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
+			NSArray *updatedVehicles = [self vehiclesFromJSONArray:@[busEventDict[@"vehicle"]]];
+			[self.delegate eventManager:self didUpdateVehicles:updatedVehicles];
+		} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
+			NSArray *removedVehicles = [self vehiclesFromJSONArray:@[busEventDict[@"vehicle"]]];
+			[self.delegate eventManager:self didRemoveVehicles:removedVehicles];
+		}
+	}];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error; {

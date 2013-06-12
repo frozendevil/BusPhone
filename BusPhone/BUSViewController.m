@@ -13,32 +13,20 @@
 #import "BUSEventManager.h"
 #import <MapKit/MapKit.h>
 
-@interface BUSViewController () <MKMapViewDelegate, SRWebSocketDelegate>
+@interface BUSViewController () <MKMapViewDelegate, BUSEventManagerDelegate>
 
 @property (nonatomic, weak) IBOutlet MKMapView *map;
-@property (nonatomic, strong) BUSEventManager *socketManager;
-@property (nonatomic, strong) SRWebSocket *webSocket;
-@property (nonatomic, strong) NSMutableArray *vehicles;
+@property (nonatomic, strong) BUSEventManager *eventManager;
 
 @end
 
 @implementation BUSViewController
 
-- (void)dealloc; {
-	[self.webSocket close];
-}
-
 - (void)viewDidLoad; {
     [super viewDidLoad];
 		
-	self.socketManager = [BUSEventManager new];
-	[self.socketManager start];
-	
-	self.vehicles = [NSMutableArray array];
-	
-	NSURL *busDroneURL = [NSURL URLWithString:@"ws://busdrone.com:28737/"];
-	self.webSocket = [[SRWebSocket alloc] initWithURL:busDroneURL];
-	self.webSocket.delegate = self;
+	self.eventManager = [BUSEventManager new];
+	self.eventManager.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated; {
@@ -47,62 +35,40 @@
 	MKCoordinateRegion startRegion = MKCoordinateRegionMake(startCoord, startSpan);
 	[self.map setRegion:startRegion animated:NO];
 	
-	[self.webSocket open];
+	[self.eventManager start];
 }
 
-- (void)didReceiveMemoryWarning; {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidDisappear:(BOOL)animated; {
+	[self.eventManager stop];
 }
 
-#pragma mark - SRWebSocketDelegate
+#pragma mark - BUSEventManagerDelegate
 
-static NSString * const BUSSocketEventTypeInit = @"init";
-static NSString * const BUSSocketEventTypeUpdateVehicle = @"update_vehicle";
-static NSString * const BUSSocketEventTypeRemoveVehicle = @"remove_vehicle";
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message; {
-	NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-	NSError *error = nil;
-	NSDictionary *busEventDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-	if(!busEventDict) {
-		NSLog(@"JSON parsing error: %@", error);
-	}
-	
-	NSString *eventType = busEventDict[@"type"];
-	
-	if([eventType isEqualToString:BUSSocketEventTypeInit]) {
-		[self createVehiclesWithJSONArray:busEventDict[@"vehicles"]];
-	} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
-		[self updateVehicleWithJSONDict:busEventDict[@"vehicle"]];
-	} else if([eventType isEqualToString:BUSSocketEventTypeUpdateVehicle]) {
-		[self removeVehicleWithJSONDict:busEventDict[@"vehicle"]];
-	}
-}
-
-- (void)createVehiclesWithJSONArray:(NSArray *)JSONArray; {
-	[self.map removeAnnotations:self.map.annotations];
-	
-	for(NSDictionary *vehicleDict in JSONArray) {
-		BUSVehicle *newVehicle = [[BUSVehicle alloc] initWithJSONDict:vehicleDict];
-		[self.map addAnnotation:newVehicle];
-	}
-}
-
-- (void)updateVehicleWithJSONDict:(NSDictionary *)JSONDict; {
-	BUSVehicle *newVehicle = [[BUSVehicle alloc] initWithJSONDict:JSONDict]; //make a partial object to grab a full one from the array
-	NSUInteger index = [self.map.annotations indexOfObject:newVehicle];
-	if(index == NSNotFound) return;
-	
-	[UIView animateWithDuration:0.25 animations:^{
-		BUSVehicle *annotation = self.map.annotations[index];
-		[annotation setValuesWithJSONDict:JSONDict];
+- (void)eventManager:(BUSEventManager *)manager didReceiveNewVehicles:(NSArray *)vehicles; {
+	[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self.map removeAnnotations:self.map.annotations];
+		[self.map addAnnotations:vehicles];
 	}];
 }
 
-- (void)removeVehicleWithJSONDict:(NSDictionary *)JSONDict; {
-	BUSVehicle *newVehicle = [[BUSVehicle alloc] initWithJSONDict:JSONDict];
-	[self.map removeAnnotation:newVehicle];
+- (void)eventManager:(BUSEventManager *)manager didUpdateVehicles:(NSArray *)vehicles; {
+	[vehicles enumerateObjectsUsingBlock:^(BUSVehicle *newVehicle, NSUInteger idx, BOOL *stop) {
+		NSUInteger index = [self.map.annotations indexOfObject:newVehicle];
+		if(index == NSNotFound) return;
+		
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			[UIView animateWithDuration:0.25 animations:^{
+				BUSVehicle *annotation = self.map.annotations[index];
+				[annotation setValuesWithVehicle:newVehicle];
+			}];
+		}];
+	}];
+}
+
+- (void)eventManager:(BUSEventManager *)manager didRemoveVehicles:(NSArray *)vehicles; {
+	[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		[self.map removeAnnotations:vehicles];
+	}];
 }
 
 #pragma mark - MKMapViewDelegate
