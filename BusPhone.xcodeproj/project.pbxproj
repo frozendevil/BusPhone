@@ -10,6 +10,8 @@
 		4325C33317670E0300F82A3D /* bus-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33117670E0300F82A3D /* bus-dot.png */; };
 		4325C33417670E0300F82A3D /* bus-dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4325C33217670E0300F82A3D /* bus-dot@2x.png */; };
 		432DB16917685B2200279C87 /* UIControl+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 432DB16617685B2200279C87 /* UIControl+Blocks.m */; };
+		432DB16B17686F7900279C87 /* icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 432DB16A17686F7900279C87 /* icon-57@2x.png */; };
+		432DB16D17686FEC00279C87 /* iconRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 432DB16C17686FEC00279C87 /* iconRetina.png */; };
 		438E88A91763F9A900533D87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88A81763F9A900533D87 /* UIKit.framework */; };
 		438E88AB1763F9A900533D87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AA1763F9A900533D87 /* Foundation.framework */; };
 		438E88AD1763F9A900533D87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88AC1763F9A900533D87 /* CoreGraphics.framework */; };
@@ -34,7 +36,6 @@
 		438E88EB1764184500533D87 /* BUSVehicleAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 438E88EA1764184500533D87 /* BUSVehicleAnnotationView.m */; };
 		438E88ED1764186F00533D87 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438E88EC1764186E00533D87 /* QuartzCore.framework */; };
 		438E88EF17655EBA00533D87 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E88EE17655EBA00533D87 /* icon-57.png */; };
-		438E88F117655EBE00533D87 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F017655EBE00533D87 /* icon-114.png */; };
 		438E88F317655EFC00533D87 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F217655EFC00533D87 /* icon-ipad.png */; };
 		438E88F517655F3400533D87 /* busphone-icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F417655F3400533D87 /* busphone-icon-144.png */; };
 		438E88FB1765743B00533D87 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 438E88F71765743B00533D87 /* LICENCE.txt */; };
@@ -54,6 +55,8 @@
 		432DB16417685B2200279C87 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		432DB16517685B2200279C87 /* UIControl+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Blocks.h"; sourceTree = "<group>"; };
 		432DB16617685B2200279C87 /* UIControl+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Blocks.m"; sourceTree = "<group>"; };
+		432DB16A17686F7900279C87 /* icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57@2x.png"; sourceTree = "<group>"; };
+		432DB16C17686FEC00279C87 /* iconRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconRetina.png; sourceTree = "<group>"; };
 		438E88A51763F9A900533D87 /* BusPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438E88A81763F9A900533D87 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		438E88AA1763F9A900533D87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,7 +92,6 @@
 		438E88EA1764184500533D87 /* BUSVehicleAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUSVehicleAnnotationView.m; sourceTree = "<group>"; };
 		438E88EC1764186E00533D87 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		438E88EE17655EBA00533D87 /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-57.png"; sourceTree = "<group>"; };
-		438E88F017655EBE00533D87 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-114.png"; sourceTree = "<group>"; };
 		438E88F217655EFC00533D87 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
 		438E88F417655F3400533D87 /* busphone-icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "busphone-icon-144.png"; sourceTree = "<group>"; };
 		438E88F71765743B00533D87 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
@@ -155,7 +157,8 @@
 			children = (
 				438E88F417655F3400533D87 /* busphone-icon-144.png */,
 				438E88F217655EFC00533D87 /* icon-ipad.png */,
-				438E88F017655EBE00533D87 /* icon-114.png */,
+				432DB16C17686FEC00279C87 /* iconRetina.png */,
+				432DB16A17686F7900279C87 /* icon-57@2x.png */,
 				438E88EE17655EBA00533D87 /* icon-57.png */,
 				438E88AE1763F9A900533D87 /* BusPhone */,
 				438E88A71763F9A900533D87 /* Frameworks */,
@@ -336,10 +339,11 @@
 				438E88C21763F9A900533D87 /* MainStoryboard_iPhone.storyboard in Resources */,
 				43988AAC17681614000BCE20 /* boat-dot@2x.png in Resources */,
 				438E88C51763F9A900533D87 /* MainStoryboard_iPad.storyboard in Resources */,
+				432DB16D17686FEC00279C87 /* iconRetina.png in Resources */,
+				432DB16B17686F7900279C87 /* icon-57@2x.png in Resources */,
 				43988AAE17681614000BCE20 /* train-dot@2x.png in Resources */,
 				438E88EF17655EBA00533D87 /* icon-57.png in Resources */,
 				4325C33417670E0300F82A3D /* bus-dot@2x.png in Resources */,
-				438E88F117655EBE00533D87 /* icon-114.png in Resources */,
 				438E88F317655EFC00533D87 /* icon-ipad.png in Resources */,
 				438E88F517655F3400533D87 /* busphone-icon-144.png in Resources */,
 				438E88FB1765743B00533D87 /* LICENCE.txt in Resources */,
