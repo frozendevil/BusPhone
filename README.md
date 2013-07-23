@@ -1,1 +1,1 @@
-A qick 'n dirty port of Eric Butler's [BusDrone android app](https://github.com/codebutler/busdrone-android).
+Moved to BitBucket: https://bitbucket.org/frozendevil/busphone
